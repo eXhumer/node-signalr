@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/eXhumer/node-signalr/issues"
   },
-  "homepage": "https://github.com/eXhumer`/node-signalr#readme",
+  "homepage": "https://github.com/eXhumer/node-signalr#readme",
   "keywords": [
     "signalr",
     "websockets"
