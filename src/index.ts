@@ -136,7 +136,10 @@ export class Client extends TypedEventEmitter<ClientEvents> {
   private reconnectCount = 0
   private reconnectTimer: NodeJS.Timeout | null = null
 
-  constructor(public readonly url: string, hubs: string[]) {
+  constructor(
+    public readonly url: string,
+    hubs: string[]
+  ) {
     super()
 
     if (hubs && hubs.length > 0) {
@@ -600,10 +603,13 @@ class Hub {
         typeof arg === 'function' || typeof arg === 'undefined' ? null : arg
       )
       const invocationId = this.client._invocationId
-      const timeoutTimer = setTimeout(() => {
-        delete this.callbacks[invocationId]
-        reject('Timeout')
-      }, this.client._callTimeout || this.client.callTimeout || 5000)
+      const timeoutTimer = setTimeout(
+        () => {
+          delete this.callbacks[invocationId]
+          reject('Timeout')
+        },
+        this.client._callTimeout || this.client.callTimeout || 5000
+      )
       this.callbacks[invocationId] = (err, result): void => {
         clearTimeout(timeoutTimer)
         delete this.callbacks[invocationId]
