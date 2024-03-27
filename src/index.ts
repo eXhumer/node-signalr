@@ -249,6 +249,16 @@ export class Client extends TypedEventEmitter<ClientEvents> {
                   )
                 )
               }
+              const resCookies = res.headers['set-cookie']
+              if (resCookies) {
+                if (!this.headers) this.headers = {}
+                const headerCookieKey = Object.keys(this.headers).find(
+                  (key) => key.toLowerCase() === 'cookie'
+                )
+                if (headerCookieKey)
+                  this.headers[headerCookieKey] += '; ' + resCookies.join('; ')
+                else this.headers['Cookie'] = resCookies.join('; ')
+              }
               resolve(protocol)
             } else if (res.statusCode == 401 || res.statusCode == 302) {
               reject(
