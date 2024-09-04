@@ -1,0 +1,46 @@
+{
+  "name": "@exhumer/node-signalr",
+  "description": "ASP.NET SignalR 2 client implementation for Node.js",
+  "version": "1.0.0-dev.0",
+  "license": "MIT",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "author": {
+    "name": "eXhumer",
+    "email": "exhumer@exhumer.cc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eXhumer/node-signalr.git"
+  },
+  "homepage": "https://github.com/eXhumer/node-signalr#readme",
+  "bugs": {
+    "url": "https://github.com/eXhumer/node-signalr/issues",
+    "email": "exhumer@exhumer.cc"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "packageManager": "yarn@1.22.22",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "devDependencies": {
+    "@types/node": "~18.17.19",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "emittery": "^1.0.3",
+    "undici": "^6.19.8"
+  },
+  "scripts": {
+    "build:clean": "rimraf --glob lib/**/*.js lib/**/*.js.map lib/**/*.d.ts",
+    "build:typecheck": "tsc --noEmit",
+    "build": "tsc"
+  }
+}
