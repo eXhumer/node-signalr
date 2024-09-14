@@ -1,5 +1,7 @@
 # node-signalr
 
+***NOTE: This project is no longer maintained. F1 Live Timing has moved it's server to ASP.NET Core and as a result, this project is no longer required.***
+
 A signalR client for node.js which support ASP.net but not ASP.net Core. For ASP.net Core signalR support use the offical client from Microsoft.
 
 This is a fork of the origianl [node-signalr](https://www.npmjs.com/package/node-signalr) project with a small patch to pass any set-cookie's from SignalR's negotiation phase to connection phase. This patch allows connection to SignalR server behind a [Google Cloud Load Balancer](https://cloud.google.com/load-balancing/docs/backend-service#generated_cookie_affinity). The main purpose of this patch is to allow connection F1's live timing SignalR server, which uses GCLB.
